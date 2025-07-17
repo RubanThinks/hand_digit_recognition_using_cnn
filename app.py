@@ -1,11 +1,19 @@
 import streamlit as st
-st.set_page_config(page_title="Draw a Digit", layout="centered")
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-from tensorflow import keras
 
+st.set_page_config(page_title="Draw a Digit", layout="centered")
+
+# Load model
+import tensorflow as tf
+from tensorflow import keras
+import streamlit as st
+from streamlit_drawable_canvas import st_canvas
+import numpy as np
+
+st.set_page_config(page_title="Draw a Digit", layout="centered")
 st.title("✍️ Draw a Digit (0–9)")
 
 # ✅ Recreate SAME architecture (must match Colab training!)
@@ -19,15 +27,14 @@ model = keras.Sequential([
     keras.layers.Dense(10, activation="softmax")
 ])
 model.summary()
-# ✅ Load only weights (version independent!)
-model.load_weights("final.weights.h5")
+from tensorflow.keras.models import load_model
 
-st.write("✅ Model weights loaded successfully!")
+# Load the ENTIRE model (architecture + weights)
+model2= load_model("final.h5")
 
 # Now you can continue with your Streamlit UI logic...
 
 
-st.title("✍️ Draw a Digit (0-9)")
 st.markdown("Draw your digit in the box below and click Predict!")
 
 # Create a canvas component
@@ -53,7 +60,7 @@ if canvas_result.image_data is not None:
         img_array = np.array(img) / 255.0
         img_array = img_array.reshape(1, 28, 28, 1)
 
-        prediction = model.predict(img_array)
+        prediction = model2.predict(img_array)
         predicted_digit = np.argmax(prediction)
 
         st.success(f"Predicted Digit: {predicted_digit}")
