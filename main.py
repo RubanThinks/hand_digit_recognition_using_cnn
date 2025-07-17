@@ -60,4 +60,4 @@ sn.heatmap(cm,annot=True,fmt="d")
 plt.xlabel("Predicted")
 plt.ylabel("Truth")
 
-model.save_weights("final.weights.h5")
+model.save("final.h5")
