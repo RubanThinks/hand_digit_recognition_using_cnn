@@ -1,19 +1,17 @@
 import streamlit as st
+st.set_page_config(page_title="Draw a Digit", layout="centered")
+
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import tensorflow as tf
 from PIL import Image
 
-st.set_page_config(page_title="Draw a Digit", layout="centered")
 
 # Load model
-import tensorflow as tf
-from tensorflow import keras
-import streamlit as st
-from streamlit_drawable_canvas import st_canvas
-import numpy as np
 
-st.set_page_config(page_title="Draw a Digit", layout="centered")
+from tensorflow import keras
+
+
 st.title("✍️ Draw a Digit (0–9)")
 
 # ✅ Recreate SAME architecture (must match Colab training!)
