@@ -1,10 +1,11 @@
 import streamlit as st
+st.set_page_config(page_title="Draw a Digit", layout="centered")
+
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import tensorflow as tf
 from PIL import Image
 
-st.set_page_config(page_title="Draw a Digit", layout="centered")
 
 # Load model
 import tensorflow as tf
