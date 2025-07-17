@@ -13,7 +13,6 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import numpy as np
 
-st.set_page_config(page_title="Draw a Digit", layout="centered")
 st.title("✍️ Draw a Digit (0–9)")
 
 # ✅ Recreate SAME architecture (must match Colab training!)
